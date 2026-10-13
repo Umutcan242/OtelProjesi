@@ -1,0 +1,973 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 6px;
+    font-family: "Roboto", sans-serif;
+}
+body{
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fff;
+}
+.nav-container{
+    width: 90%;
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    
+
+}
+
+.container{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    
+}
+
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+.text-uppercase{
+    text-transform: uppercase;
+}
+.clearfix::after{
+    clear: both;
+    content: "";
+   display: block;
+}
+@media screen and (min-width:576px) {
+    .container{
+        max-width: 540px;
+    }
+    html{
+        font-size: 6px;
+    }
+
+
+}
+@media screen and (min-width:768px) {
+    .container{
+        max-width: 720px;
+    }
+    html{
+        font-size: 7px;
+    }
+
+}
+@media screen and (min-width:992px) {
+    .container{
+        max-width: 960px;
+    }
+    html {
+        font-size: 7px;
+    }
+
+}
+@media screen and (min-width:1200px) {
+    .container{
+        max-width: 1140px;
+    }
+    html{
+        font-size: 9px;
+    }
+}
+
+/*NavBar*/
+nav{
+  width: 100%;
+  position: fixed;
+  background-color: black;
+  color: #000;
+  padding: 3rem 0;
+  z-index: 50;
+  height: 130px;
+}
+
+.logo-box {
+  display: flex;
+  float: left;
+  padding: 0rem 2rem;
+  margin:0rem 3rem;
+  color: #fff;
+  background-color: transparent;
+  border-radius: 20px;
+
+     /* Güzel bir gölge ekliyoruz */
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+     0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.logo-box h1{
+
+  float: left;
+  padding: 2rem 1rem;
+  color: #fff;
+
+}
+.logo-box .logo{
+  color: #fff;
+  font-weight: 700;
+  font-size: 3.2rem;
+  width: 75px;
+  height: 75px;
+}
+
+
+.nav-links{
+  float: right;
+}
+.nav-links .nav-item{
+  float: left;
+  margin: 1rem;
+  list-style-type: none;
+}
+
+.nav-links .nav-link{
+
+  color: #fff;
+  font-size: 1.8rem;
+  display: block;
+  padding: 1.8rem;
+  letter-spacing: 0.1rem;
+  transition: color 0.4s;
+}
+
+.nav-links .nav-link:hover{
+  color: burlywood;
+}
+
+
+.nav-links .nav-icon{
+  display:none;
+}
+
+.nav-links .nav-login{
+  display: flex; /* Flexbox etkinleştiriliyor */
+  align-items: center; /* Dikey ortalama */
+  position: relative; /* Absolute pozisyonlu çocuklar için */
+  height: 100%; /* Ebeveyn yüksekliğini doldurmak için */
+
+  background-color: #fff;
+  padding: 10px 20px;
+  
+  font-weight: bold;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 50px;
+  color: #000;
+  min-width: 120px;
+  
+
+}
+
+.nav-links .nav-login:hover{
+
+  background-color: #000;
+  color: burlywood;
+
+}
+
+.nav-links .nav-login i {
+  font-size: 4.5rem;
+  position: absolute;
+  right: 0; /* Sağa hizalar */
+  top: 50%; /* Dikey hizalamayı ayarlar */
+  transform: translateY(-50%); /* Dikey ortalamayı tamamlama */
+}
+/* Menü Çubuğu */
+.menubar {
+top: 0;
+right: 0;
+padding:20px;  /* Menü çubuğunun üst kısmında biraz boşluk */
+display: none;
+position: absolute;
+}
+
+/* Menü Butonu */
+.menubar-btn {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 50px;  /* Butonun genişliği */
+height: 50px;  /* Butonun yüksekliği */
+background-color: #000;  /* Butonun arka plan rengi */
+color: white;  /* İcon rengi beyaz */
+font-size: 24px;  /* İcon boyutu */
+border-radius: 15px;  /* Butonun kenarlarını yuvarlat */
+transition: background-color 0.3s ease;  /* Hover efekti için geçiş */
+text-decoration: none;  /* Linkin altını çizmesini engelle */
+}
+
+/* Menü Butonu Hover Durumu */
+.menubar-btn:hover {
+background-color: #555;  /* Hover durumunda butonun rengi değişir */
+}
+
+/* Font Awesome İcon */
+.menubar-btn i {
+margin: 0;
+}
+
+/* Genel loginBoard stili */
+.loginBoard {
+width: 350px;
+height: 100%;
+position: fixed;
+right: 0;
+top: 0;
+background: linear-gradient(135deg, #333, #000);
+padding: 20px;
+box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+z-index: 100;
+border-left: 1px solid #444;
+visibility: hidden;
+
+}
+
+
+/* Tablet ve daha küçük ekranlar */
+@media (max-width: 1024px) {
+.logo-box {
+    margin: 0rem 2rem;
+    padding: 0rem 1rem;
+}
+
+.nav-links{
+  display: none;
+}
+
+.menubar{
+  display:flex;
+}
+
+.nav-item {
+  display: none;
+    margin: 0.5rem 0;
+}
+
+.nav-link {
+    padding: 1rem;
+    font-size: 1.6rem;
+}
+
+.nav-login {
+    margin: 1rem 0;
+}
+
+
+
+.nav-icon {
+    display: block;
+    font-size: 3rem;
+    cursor: pointer;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+.loginBoard{
+  width: 100%;
+}
+}
+
+/* Telefon ve daha küçük ekranlar */
+@media (max-width: 600px) {
+.logo-box .logo {
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+}
+.menubar{
+  display:flex;
+}
+.nav-link {
+    font-size: 1.4rem;
+}
+
+.nav-login {
+    font-size: 1.2rem;
+    padding: 8px 15px;
+}
+.loginBoard{
+  width: 100%;
+}
+
+
+
+}
+
+  /* UL içeriği hizalama */
+  #loginbtn {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Butonları ortalar */
+  }
+  
+  /* Kullanıcı butonu */
+  #closeloginPnl {
+    margin-bottom: 15px;
+    display: flex;
+  
+  }
+  
+  .onloginbtn {
+    display: flex;
+  
+    text-decoration: none;
+    background-color: #fff;
+    color: #000;
+    padding: 15px 30px; /* Sol ve sağ padding artırıldı */
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: auto; /* Genişliği içeriğe göre ayarlandı */
+  }
+  
+  /* Hover efekti */
+  .onloginbtn:hover {
+    background-color: #444;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+  }
+  
+  /* İkon stili */
+  .onloginbtn i {
+    font-size: 4.5rem;
+    position: absolute;
+    left: 0; /* Sağa hizalar */
+    top: 50%; /* Dikey hizalamayı ayarlar */
+    transform: translateY(-50%); /* Dikey ortalamayı tamamlama */
+  }
+  
+  .onloginbtn:hover i {
+    color: #fff;
+  }
+  .onloginbtn p{
+    padding-left: 2.5rem;
+  }
+  
+  
+  /* Genel Menü Stili */
+  .menu {
+  
+    list-style: none;
+    padding: 0;
+    
+    margin: 0;
+    margin-top: 100px;
+    width: 100%;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Menü Elemanları */
+  .menuOptions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 40px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Beyaz renk, opaklık %30 */
+  }
+  
+  .menuOptions i {
+    font-size: 2rem;
+    margin-right: 15px; /* İkon ile metin arasına boşluk */
+  }
+  
+  /* Menü Hover Efekti */
+  .menuOptions:hover {
+    background-color: #444;
+    color: #ffcc00; /* Hoverda renk değişir */
+  }
+  
+  
+  
+  /* Alt Kısımdaki Son Menü Elemanı için Ayrı Stili */
+  .menuOptions:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    margin-bottom: 0;
+  }
+  
+  /* Menü Öne Çıkartma (İkon ve Yazı Eşit Görünsün) */
+  .menuOptions:hover i {
+    color: #ffcc00;
+  }
+  
+  
+  
+  .account-options {
+    width: 100%; /* Tam genişlik */
+    min-height: 100vh; /* En az ekranın tamamını kapla */
+    background-color: #000000; /* Siyah arka plan */
+    padding-top: 100px; /* Üstten boşluk */
+    padding-bottom: 0; /* Alttan boşluk kaldırıldı */
+    margin: 0; /* Dış boşluk kaldırıldı */
+    box-sizing: border-box; /* Padding'i dahil etmek için */
+    overflow: hidden; /* Kaydırmaları tamamen gizler */
+  
+    display: none;
+  }
+  
+  
+  
+  .my-account {
+    width: 100%;
+    max-width: 400px;
+  
+    margin: 50px auto;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: none;
+  }
+  
+  .my-account .profile-header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  .my-account .profile-pic {
+    margin: 0 auto 15px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ffffff;
+  }
+  
+  .my-account .profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .my-account .profile-header h1 {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  
+  .my-account .profile-header .email {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+  
+  .my-account .account-content {
+    padding: 20px;
+  }
+  
+  .my-account .account-section {
+    margin-bottom: 20px;
+  }
+  
+  .my-account .account-section h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+  }
+  
+  .my-account .account-section p {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+  }
+  
+  .my-account .btn {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #2575fc;
+    color: #fff;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .my-account .btn:hover {
+    background-color: #1b5fcf;
+  }
+  
+  .my-account .btn.danger {
+    background-color: #ff4d4d;
+  }
+  
+  .my-account .btn.danger:hover {
+    background-color: #e63939;
+  }
+  
+  
+  
+  
+  .my-rezervation {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+  .my-rezervation h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Rezervasyon Kartı */
+  .my-rezervation .rezervation-card {
+    display: flex;
+    background: #fafafa;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .my-rezervation .rezervation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Kart Resim Bölümü */
+  .my-rezervation .card-image {
+    flex: 0 0 150px;
+    height: 150px;
+    overflow: hidden;
+    border-right: 2px solid #e0e0e0;
+  }
+  
+  .my-rezervation .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Kart İçerik Bölümü */
+  .my-rezervation .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
+  }
+  
+  .my-rezervation .card-header {
+    margin-bottom: 10px;
+  }
+  
+  .my-rezervation .card-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .my-rezervation .card-header .date {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .my-rezervation .card-body p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .my-rezervation .card-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .my-rezervation .btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .my-rezervation .btn-edit {
+    background-color: #2575fc;
+    color: #ffffff;
+  }
+  
+  .my-rezervation .btn-edit:hover {
+    background-color: #1b5fcf;
+  }
+  
+  .my-rezervation .btn-cancel {
+    background-color: #ff4d4d;
+    color: #ffffff;
+  }
+  
+  .my-rezervation .btn-cancel:hover {
+    background-color: #e63939;
+  }
+  
+  
+  
+  
+  
+
+
+
+
+
+/* #section1 CSS */
+#section1 {
+    position: relative;
+
+    background-color: #f5f5f5; /* Hafif bir arka plan rengi */
+    display: flex; /* İçerikleri yatay düzenlemek için flexbox */
+    justify-content: center; /* İçerikleri yatayda ortalar */
+    align-items: center; /* İçerikleri dikeyde ortalar */
+    gap: 2rem; /* Sol ve sağ içerikler arasında boşluk */
+    flex-wrap: wrap; /* Küçük ekranlarda içeriklerin alt alta gelmesini sağlar */
+   
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    margin: auto 0;
+    padding-top: 130px;
+    padding-bottom: 40px;
+    text-align: center; /* Metin ortalaması */
+ 
+    clear: both;
+}
+
+#section1 .header {
+    text-align: center;
+
+    display: block;
+    width: 100%;
+    padding: 20px 0px;
+}
+#section1 .header hr {
+    display: block; /* Çizgiyi blok eleman yapar (varsayılan zaten) */
+    width: 100%; /* Çizginin genişliği */
+    height: 1px; /* Çizginin kalınlığı */
+    background-color: #000; /* Çizginin rengi */
+    border: none; /* Varsayılan kenarlıkları kaldırır */
+    margin: 5px auto; /* Çizginin üst-alt boşlukları */
+ 
+}
+
+
+#section1 .header h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    color: #333;
+    justify-content: center; /* İçerikleri yatayda ortalar */
+    align-items: center; /* İçerikleri dikeyde ortalar */
+    
+    padding-top: 40px;
+}
+
+
+
+
+
+
+
+/* İçerik Kutuları */
+#section1 .content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-items: stretch; /* Eşit yükseklik için */
+    gap: 2rem; /* Kutular arasında boşluk */
+    flex-wrap: wrap; /* Küçük ekranlarda kutuların alt alta gelmesini sağlar */
+}
+
+#section1 .col {
+    flex: 1; /* Esnek genişlik */
+    min-width: 350px; /* Kutuların minimum genişliği */
+    min-height: 400px;
+    max-width: 30%; /* Yan yana 3 kutu için maksimum genişlik */
+    background-color: #fff; /* Beyaz kutular */
+    border-radius: 10px; /* Yuvarlatılmış köşeler */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#section1 .col:hover {
+    transform: translateY(-5px); /* Hover animasyonu */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#section1 .col .header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+#section1 .col ul {
+    list-style: none; /* Liste stilini kaldırır */
+    padding: 0;
+    margin: 1rem 0;
+    font-size: 1.6rem;
+    color: #666;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+#section1 .col ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Sosyal Medya İkonları */
+#section1 .col ul li i {
+    font-size: 1.5rem;
+    color: #555;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+#section1 .col ul li i:hover {
+    color: #007bff; /* Hover'da mavi renk */
+}
+
+
+#section1 .col .social-media {
+    display: flex; /* İkonları yatayda düzenlemek için flexbox */
+    justify-content: center; /* Ortalama */
+    gap: 1rem; /* İkonlar arasında boşluk */
+    padding: 0;
+    margin: 1rem 0;
+    list-style: none; /* Liste stilini kaldırır */
+}
+
+#section1 .col .social-media li {
+    width: 50px; /* Yuvarlak genişlik */
+    height: 50px; /* Yuvarlak yükseklik */
+    display: flex; /* İçerik hizalamak için flexbox */
+    justify-content: center; /* Yatayda ikon ortalaması */
+    align-items: center; /* Dikeyde ikon ortalaması */
+    border: 1px solid #000; /* Siyah sınır */
+    border-radius: 50%; /* Yuvarlak hale getirir */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-color: #fff; /* Arka plan rengi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    cursor: pointer;
+}
+
+#section1 .col .social-media li:hover {
+    background-color: #007bff; /* Hover'da mavi arka plan */
+    transform: scale(1.1); /* Hover'da büyüme efekti */
+}
+
+#section1 .col .social-media li i {
+    font-size: 3rem; /* İkon boyutu */
+    color: #555; /* Varsayılan ikon rengi */
+    line-height: 1; /* İkonun yüksekliğini hizalar */
+    text-align: center; /* İkon ortalaması */
+    transition: color 0.3s ease;
+}
+
+#section1 .col .social-media li:hover i {
+    color: #fff; /* Hover'da ikon rengi beyaz */
+}
+
+
+
+/* Tablet ve daha küçük ekranlar */
+@media (max-width: 1024px) {
+  #section1 {
+    padding-top: 130px;
+  }
+
+}
+
+/* Mobil cihazlar için daha küçük ekranlar */
+@media (max-width: 768px) {
+  #section1 {
+    padding-top: 130px;
+  }
+
+
+
+}
+
+/* Telefon ve daha küçük ekranlar */
+@media (max-width: 480px) {
+  #section1 .header h1 {
+      font-size: 4rem; /* Başlık boyutunu çok küçük ekranlar için küçült */
+  }
+
+
+}
+
+/* Genel Footer Stili */
+footer {
+    background: linear-gradient(to top, #727374, #1e1d1d); /* Modern degrade arka plan */
+    color: #f7f7f7;
+    padding: 40px 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 2rem;
+    text-align: left;
+  }
+  
+  .footer-left, .footer-center, .footer-right {
+    width: 30%;
+    min-width: 250px;
+  }
+  
+  .footer-center hr,.footer-right hr{
+    width: 80%;
+    height: 0.5px;
+  
+  }
+  .footer-left img {
+    margin-bottom: 15px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #3498db;
+  }
+  
+  .footer-left h2 {
+    font-size: 2.5rem;
+    color: #3498db;
+    margin-bottom: 10px;
+  }
+  
+  .footer-left p {
+    font-size: 1.1rem;
+    color: #dfe6e9;
+    line-height: 1.6;
+  }
+  
+  .footer-center h3, .footer-right h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #f7f7f7;
+  }
+  
+  .footer-center ul {
+    list-style: none;
+    padding: 1rem;
+  }
+  
+  .footer-center ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-center ul li a {
+    color: #dfe6e9;
+    font-size: 1.2rem;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-center ul li a:hover {
+    color: #3498db;
+    transform: translateX(5px); /* Hover efekti */
+  }
+  
+  .footer-right .social-icons {
+    padding: 1rem;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+  }
+  
+  .footer-right .social-icons a {
+    font-size: 1.8rem;
+    color: #dfe6e9;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-right .social-icons a:hover {
+    color: #3498db;
+    transform: scale(1.2); /* Hover efekti */
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    font-size: 1rem;
+    color: #95a5a6;
+    margin-top: 20px;
+    border-top: 1px solid #7f8c8d;
+    padding-top: 10px;
+  }
+  
+  /* Hover Animasyonları için Stil */
+  .footer-left img {
+    transition: transform 0.3s ease, border 0.3s ease;
+  }
+  
+  .footer-left img:hover {
+    transform: rotate(360deg); /* Modern hover animasyonu */
+    border: 2px solid #f7f7f7;
+  }
+  
+  /* Responsive Tasarım */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .footer-left, .footer-center, .footer-right {
+      width: 100%;
+    }
+  
+    .footer-right .social-icons {
+      justify-content: center;
+    }
+  }
+  
+  
+  
